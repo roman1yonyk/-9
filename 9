@@ -1,0 +1,34 @@
+class With_land:
+    def message(self):
+        return "Цей будинок має прилеглу територію."
+
+class Without_land:
+    def message(self):
+        return "Цей будинок не має прилеглої території."
+
+class For_many_families:
+    def message(self):
+        return "Це багатоквартирний будинок."
+
+class For_one_family:
+    def message(self):
+        return "Це одноквартирний будинок."
+
+class Villets(For_one_family, With_land):
+    pass
+
+class Apartmens(For_many_families, Without_land):
+    pass
+
+
+villet = Villets()
+apartment = Apartmens()
+
+print(villet.message())       
+print(apartment.message()) 
+
+
+#У Python, якщо використовується багаторазове успадкування, метод, який буде викликаний, залежить від порядку,
+#в якому класи зазначені в декларації успадкування. В прикладі вище для класу Villets, якщо For_one_family вказано першим,
+#вивід буде "Це одноквартирний будинок". Для Apartmens аналогічно повідомлення буде з For_many_families, тобто "Це багатоквартирний будинок". 
+      
